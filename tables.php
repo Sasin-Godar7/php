@@ -37,6 +37,10 @@
     ?>
    
     <br>
+    <br>
+    <form method="post" action="tables.php">
+        <input type="submit" name="back" value="Back to Form">
+    </form>
 
     
 
