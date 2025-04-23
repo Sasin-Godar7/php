@@ -34,6 +34,7 @@
         $side = $_GET["side"];
         $areaSquare = $side * $side;
         echo "The area of the square is: " . $areaSquare;
+        
     }
     ?>
 </body>
