@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+<form action="circle.php" method="post">
+            <label for="radius">Radius : </label>
+            <input type="number" name="radius" id="radius" required><br><br>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+    </form>
     <?php
     if(isset($_POST["radius"])){
         $radius = $_POST["radius"];
