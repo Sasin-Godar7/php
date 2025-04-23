@@ -6,30 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-<form method="post" action="tables.php">
-   
-echo"Enter the Number to generate the table";
-echo"<input type='text' name='number'>";
-echo"<br>","<br>";
-echo"<input type='submit' name='submit' value='submit'>";
-echo"</form>";
-// if(isset($_POST['submit']))
-// {
-//     $number = $_POST['number'];
-//     echo "<table border='1'>";
-//     echo "<tr><th>Number</th><th>Table</th></tr>";
-//     for($i=1; $i<=10; $i++)
-//     {
-//         echo "<tr>";
-//         echo "<td>$number</td>";
-//         echo "<td>" . ($number * $i) . "</td>";
-//         echo "</tr>";
-//     }
-//     echo "</table>";
-// }
+ 
+<form method="post">
+    Enter a number: <input type="number" name="num">
+    <br><br>
+    <input type="submit" value="Show Table">
+</form>
 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $number = $_POST["num"];
+    
+    echo "<h2>Multiplication Table of $number</h2>";
+
+    for ($i = 1; $i <= 10; $i++) {
+        $result = $number * $i;
+        echo "$number x $i = $result <br>";
+    }
+}
 ?>
+
 
 
 </body>
