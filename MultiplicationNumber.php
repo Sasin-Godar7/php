@@ -7,7 +7,7 @@
 </head>
 <body>
      <!-- Multiplication Table Fieldset -->
-     <fieldset style="width: 300px; background-color: lightyellow; border: 2px solid black; padding: 10px;">
+     <fieldset style="width: 300px; border: 2px solid black; padding: 10px;">
         <legend>Multiplication Table</legend>
 
         <form method="post" action="">
