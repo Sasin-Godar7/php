@@ -25,10 +25,23 @@
        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['form_type']) && $_POST['form_type'] === 'student_record') {
            $name = $_POST["name"];
            $age = $_POST["age"];
-           $grade = $_POST["grade"];
+           $grade = $_POST["grade"];   
+         
+           if(file_exists("studentrecord.txt")) {
+               $file = fopen("studentrecord.txt", "a+");
+           } else {
+               $file = fopen("studentrecord.txt", "w+");
+           }
+           fwrite($file, "Name: $name\nAge: $age\nGrade: $grade\n\n");
+        ?>       fclose($file);
+           echo "<h3>Student record saved successfully!</h3>";
+           echo "<h4>Student Name: $name</h4>";
+              echo "<h4>Student Age: $age</h4>";
+                echo "<h4>Student Grade: $grade</h4>";
+              echo "<h4>Record saved in studentrecord.txt</h4>";
+              
+               
 
-          
-       }
     
 </body>
 </html>
