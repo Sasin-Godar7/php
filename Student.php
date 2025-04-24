@@ -27,14 +27,7 @@
            $age = $_POST["age"];
            $grade = $_POST["grade"];
 
-           if (!empty($name) && is_numeric($age) && !empty($grade)) {
-               echo "<h3>Student Record</h3>";
-               echo "Name: $name <br>";
-               echo "Age: $age <br>";
-               echo "Grade: $grade <br>";
-           } else {
-               echo "<strong>Please fill in all fields correctly.</strong>";
-           }
+          
        }
     
 </body>
