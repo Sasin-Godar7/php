@@ -33,7 +33,7 @@
            } else {
                $file = fopen("studentrecord.txt", "w+");
            }
-           fwrite($file, "Name: $name\nAge: $age\nGrade: $grade\n\n");
+           fwrite($file, "Name: $name ,Age: $age ,Grade: $grade\n\n");
      
               fclose($file);
         }
