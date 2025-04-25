@@ -1,19 +1,19 @@
-
-<!-- Student information in PHP -->
 <html>
 <head>
     <title>Student Information</title>
 </head>
 <body>
 <h2>Student Information</h2>
-<?php
-if(file_exists("Student.txt"))
-{
-    $fp = fopen("Student.txt", "r") or die("Unable to open file!");
-    echo "<h1>Student Details</h1>"; // Fixed: Added opening <
 
-    echo "<table border='1'>
-    <tr>
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if(file_exists("Student.txt")) {
+    $fp = fopen("Student.txt", "r") or die("Unable to open file!");
+    
+    echo "<table border='1' cellpadding='8' cellspacing='0'>
+    <tr style='background-color: #f2f2f2;'>
         <th>Name</th>
         <th>Phone</th>
         <th>Course</th>
@@ -21,10 +21,13 @@ if(file_exists("Student.txt"))
         <th>Address</th>
     </tr>";
     
-    while(!feof($fp)) {
-        $line = fgets($fp);
+    while (($line = fgets($fp)) !== false) {
+        $line = trim($line);
+        if ($line == "") continue; // Skip empty lines
+        
         $arr = explode(",", $line);
-        if(trim($arr[0]) != "") { // Trim to avoid extra whitespace
+        
+        if(count($arr) >= 5) {
             echo "<tr>
                 <td>{$arr[0]}</td>
                 <td>{$arr[1]}</td>
@@ -34,11 +37,13 @@ if(file_exists("Student.txt"))
             </tr>";
         }
     }
+    
     echo "</table>";
     fclose($fp);
 } else {
-    echo "No student information found.";
+    echo "<p style='color:red;'>No student information found. Make sure Student.txt exists.</p>";
 }
 ?>
+
 </body>
 </html>
