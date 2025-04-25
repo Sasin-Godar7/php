@@ -28,10 +28,10 @@
            $age = $_POST["age"];
            $grade = $_POST["grade"];   
          
-           if(file_exists("studentrecord.txt")) {
-               $file = fopen("studentrecord.txt", "a+");
+           if(file_exists("Student.txt")) {
+               $file = fopen("Student.txt", "a+");
            } else {
-               $file = fopen("studentrecord.txt", "w+");
+               $file = fopen("Student.txt", "w+");
            }
            fwrite($file, "Name: $name ,Age: $age ,Grade: $grade\n\n");
      
