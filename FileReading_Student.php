@@ -8,7 +8,7 @@
 <body>
   <?php
   if(file_exists("Student.txt"))
-  {
+  
     $fp = fopen("Student.txt", "r") or die("Unable to open file!");
 echo "<h2>Student records:</h2>";
 <table border='1'>
