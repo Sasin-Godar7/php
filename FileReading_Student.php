@@ -7,7 +7,7 @@
 </head>
 <body>
   <?php
-  if(file_exists("Student.txt"))
+  if(file_exists("studentrecord.txt"))
   
     $fp = fopen("Student.txt", "r") or die("Unable to open file!");
 echo "<h2>Student records:</h2>";
