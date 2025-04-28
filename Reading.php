@@ -44,6 +44,9 @@ if(file_exists("Student.txt")) {
     echo "<p style='color:red;'>No student information found. Make sure Student.txt exists.</p>";
 }
 ?>
+<!-- this is about the student information -->
+
+
 
 </body>
 </html>
