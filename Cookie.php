@@ -12,10 +12,8 @@ $_COOKIE_name["name"] = " User";
 $_COOKIE_value ="john doe";
 setcookie($_COOKIE_name["name"], $_COOKIE_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 ?>
-    
-</body>
-</html>
 
+<!--NEXT COOKIE-->
 <?php
 // Check if the cookie is set
 if(isset($_COOKIE[$_COOKIE_name["name"]])) {
@@ -25,3 +23,7 @@ if(isset($_COOKIE[$_COOKIE_name["name"]])) {
     echo "Cookie '" . $_COOKIE_name["name"] . "' is not set!";
 }
 ?>
+    
+</body>
+</html>
+
