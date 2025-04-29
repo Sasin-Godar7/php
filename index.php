@@ -2,17 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Set Cookie Example</title>
 </head>
 <body>
-    <?php
-    $x = 10;
-    ?>
 
-    <!-- this is the clone version of the original file
-    <p>Value of x:-->
-    
-    
+<?php
+$userid = "101";
+$username = "Sasin";
+$password = "12345678";
+
+// Check if form submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST["user"];
+    $pass = $_POST["pass"];
+
+    if ($user == $username && $pass == $password) {
+        setcookie("user", $user, time() + (86400 * 30), "/");
+        setcookie("userid", $userid, time() + (86400 * 30), "/");
+
+        echo "<p style='color: green;'>✅ Cookie is set! Welcome, $user</p>";
+    } else {
+        echo "<p style='color: red;'>❌ Invalid username or password!</p>";
+    }
+} else {
+    // If already logged in (cookie exists)
+    if (isset($_COOKIE["user"])) {
+        echo "<p style='color: blue;'>🔐 Welcome back, " . $_COOKIE["user"] . " (Cookie found)</p>";
+    } else {
+        echo "<p>Cookie is not set yet. Please login.</p>";
+    }
+}
+?>
+
+<!-- LOGIN FORM -->
+<h2>Login Form</h2>
+<form method="post" action="index.php">
+    <label for="user">Username:</label><br>
+    <input type="text" id="user" name="user" required><br><br>
+
+    <label for="pass">Password:</label><br>
+    <input type="password" id="pass" name="pass" required><br><br>
+
+    <input type="submit" value="Login">
+</form>
+
 </body>
 </html>
