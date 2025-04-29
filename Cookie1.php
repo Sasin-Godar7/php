@@ -2,43 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Set Cookie Example</title>
 </head>
 <body>
+
 <?php
 $userid = "101";
 $username = "Sasin";
 $password = "12345678";
 
-if(isset($_REQUEST["user"])) {
-    $user = $_REQUEST["user"];
-    $pass = $_REQUEST["pass"];
+// Check if form submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST["user"];
+    $pass = $_POST["pass"];
 
-    if($user == $username && $pass == $password) {
-        setcookie("user", $user, time() + (86400 * 30), "/"); // 86400 = 1 day
-        setcookie("userid", $userid, time() + (86400 * 30), "/"); // 86400 = 1 day
+    if ($user == $username && $pass == $password) {
+        setcookie("user", $user, time() + (86400 * 30), "/");
+        setcookie("userid", $userid, time() + (86400 * 30), "/");
 
-        echo "<br>Cookie is set!<br>";
-
+        echo "<p style='color: green;'>✅ Cookie is set! Welcome, $user</p>";
     } else {
-        echo "<br>Invalid username or password!<br>";
+        echo "<p style='color: red;'>❌ Invalid username or password!</p>";
     }
-
 } else {
-    echo "<br>Cookie is not set!<br>";
+    // If already logged in (cookie exists)
+    if (isset($_COOKIE["user"])) {
+        echo "<p style='color: blue;'>🔐 Welcome back, " . $_COOKIE["user"] . " (Cookie found)</p>";
+    } else {
+        echo "<p>Cookie is not set yet. Please login.</p>";
+    }
 }
 ?>
 
+<!-- LOGIN FORM -->
+<h2>Login Form</h2>
+<form method="post" action="Cookie1.php">
+    <label for="user">Username:</label><br>
+    <input type="text" id="user" name="user" required><br><br>
 
-    <!--LOGIN FORM-->
-    <form method="post" action="SetCookie.php">
-        <label for="user">Username:</label><br>
-        <input type="text" id="user" name="user"><br>
-        <label for="pass">Password:</label><br>
-        <input type="password" id="pass" name="pass"><br><br>
-        <input type="submit" value="Login">
-    </form>
-    <br><br>
+    <label for="pass">Password:</label><br>
+    <input type="password" id="pass" name="pass" required><br><br>
+
+    <input type="submit" value="Login">
+</form>
+
 </body>
 </html>
