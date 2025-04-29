@@ -6,34 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    $userid = "101";
-    $username = "Sasin";
-    $password = "12345678";
-    if(isset($_REQUEST["user"]))
-    {
-        $user = $_REQUEST["user"];
-        $pass = $_REQUEST["pass"];
+<?php
+$userid = "101";
+$username = "Sasin";
+$password = "12345678";
 
-        if($user==%username && $pass==$password)
-        {
-            setcookie("user", $user, time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie("userid", $userid, time() + (86400 * 30), "/"); // 86400 = 1 day
+if(isset($_REQUEST["user"])) {
+    $user = $_REQUEST["user"];
+    $pass = $_REQUEST["pass"];
 
-            echo"<br>Cookie is set!<br>";
+    if($user == $username && $pass == $password) {
+        setcookie("user", $user, time() + (86400 * 30), "/"); // 86400 = 1 day
+        setcookie("userid", $userid, time() + (86400 * 30), "/"); // 86400 = 1 day
 
-        }
-        else
-        {
-            echo"<br>Invalid username or password!<br>";
-        }
-        
+        echo "<br>Cookie is set!<br>";
+
+    } else {
+        echo "<br>Invalid username or password!<br>";
     }
-    else
-    {
-        echo"<br>Cookie is not set!<br>";
-    }
-    ?>
+
+} else {
+    echo "<br>Cookie is not set!<br>";
+}
+?>
+
 
     <!--LOGIN FORM-->
     <form method="post" action="SetCookie.php">
