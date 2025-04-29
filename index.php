@@ -9,6 +9,9 @@
     <?php
     $x = 10;
     ?>
+
+    <!-- this is the clone version of the original file
+    <p>Value of x:-->
     
     
 </body>
