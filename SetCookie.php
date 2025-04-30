@@ -46,5 +46,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="submit" value="Login">
 </form>
 
+<br><br>
+<!-- LOGOUT BUTTON -->
+<form method="post" action="SetCookie.php">
+    <input type="hidden" name="logout" value="1">
+    <input type="submit" value="Logout">
+</form>
+<?php
+// Logout functionality
+if (isset($_POST["logout"])) {
+    setcookie("user", "", time() - 3600, "/"); // Expire the cookie
+    setcookie("userid", "", time() - 3600, "/"); // Expire the cookie
+    echo "<p style='color: orange;'>🔒 You have logged out. Cookies cleared.</p>";
+}
+?>
+<!-- FOOTER -->
+<hr>
 </body>
 </html>
