@@ -9,7 +9,7 @@ if (isset($_SESSION['username'])) {
 
 <form method="POST" action="login.php">
     <label>Username:</label>
-    <input type="text" name="username" required><br>
+    <input type="text" name="username" required><br><br>
 
     <label>Password:</label>
     <input type="password" name="password" required><br>
