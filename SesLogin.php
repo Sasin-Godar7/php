@@ -2,12 +2,12 @@
 session_start();
 
 if (isset($_SESSION['username'])) {
-    header("Location: dashboard.php");
+    header("Location: SesDashboard.php");
     exit();
 }
 ?>
 
-<form method="POST" action="login.php">
+<form method="POST" action="SesLogin.php">
     <label>Username:</label>
     <input type="text" name="username" required><br><br>
 
@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
 
     if ($user === $validUser && $pass === $validPass) {
         $_SESSION['username'] = $user;
-        header("Location: dashboard.php");
+        header("Location: SesDashboard.php");
         exit();
     } else {
         echo "<p style='color:red;'>Invalid username or password.</p>";
